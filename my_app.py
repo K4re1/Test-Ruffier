@@ -1,0 +1,25 @@
+# напиши здесь код основного приложения и первого экрана
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QMessageBox
+
+app = QApplication([])
+main_win = QWidget()
+main_win.setWindowTitle('Тест Руфье')
+main_win.move(460, 170)
+main_win.resize(1000, 600)
+hello = QLabel('Добро пожаловать в программу по определению состояния вашего здоровья!')
+instructions = QLabel('Проба проводится следующим образом. \n После 5-минутного отдыха у испытуемого измеряют пульс в положении сидя. \n Далее необходимо сделать 30 приседаний за 45 секунд, после чего испытуемый садится и в течение первых 15-ти секунд вновь фиксируются показания пульса. \n Третьим показателем является число сердечных ударов за последние 15 секунд первой минуты отдыха после приседаний.')
+button = QPushButton('Начать')
+line_h1 = QHBoxLayout()
+line_h2 = QHBoxLayout()
+line_h3 = QHBoxLayout()
+line_v1 = QVBoxLayout()
+line_h1.addWidget(hello, alignment = Qt.AlignLeft)
+line_h2.addWidget(instructions, alignment = Qt.AlignLeft)
+line_h3.addWidget(button, alignment = Qt.AlignCenter)
+line_v1.addLayout(line_h1)
+line_v1.addLayout(line_h2)
+line_v1.addLayout(line_h3)
+main_win.setLayout(line_v1)
+main_win.show()
+app.exec_()
